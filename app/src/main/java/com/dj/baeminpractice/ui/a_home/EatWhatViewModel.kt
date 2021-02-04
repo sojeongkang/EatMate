@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dj.baeminpractice.model.WhatToEat
 import com.dj.baeminpractice.repository.b_eatwhat.EatWhatRepositoryImpl
-import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -17,7 +17,7 @@ class EatWhatViewModel : ViewModel() {
 
     fun getFakeWhatToEatList() {
         viewModelScope.launch {
-            withContext(IO) {
+            withContext(Dispatchers.IO) {
                 _eatWhatToEatList.postValue(EatWhatRepositoryImpl.getWhatToEatItems())
             }
         }

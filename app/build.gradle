@@ -64,4 +64,11 @@ dependencies {
 
     //FlexBox
     implementation 'com.google.android:flexbox:2.0.1'
+
+    //RecyclerView
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
+
+    implementation 'com.android.support:design:27.1.1'
+
+
 }

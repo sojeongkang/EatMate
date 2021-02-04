@@ -2,110 +2,160 @@ package com.dj.baeminpractice.ui.a_home
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
+import android.widget.ImageButton
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
-import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.viewpager2.widget.ViewPager2
+import androidx.viewpager.widget.ViewPager
+import com.dj.baeminpractice.MainActivity
 import com.dj.baeminpractice.R
-import com.dj.baeminpractice.model.BannerItem
-import com.dj.baeminpractice.ui.EventActivity
-import com.dj.baeminpractice.ui.collapse
-import com.dj.baeminpractice.ui.expand
+import com.dj.baeminpractice.ui.c_favorite.FavoriteFragment
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.tabs.TabLayout
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.isActive
 
-class HomeFragment : Fragment(R.layout.fragment_home), Interaction {
 
-    private lateinit var gridRecyclerViewAdapter: GridRecyclerViewAdapter
-    private lateinit var viewPagerAdapter: ViewPagerAdapter
-    private val homeViewModel: HomeViewModel by viewModels()
+class HomeFragment : Fragment(R.layout.fragment_home), View.OnClickListener {
+
+    lateinit var myFragment: View
+    lateinit var viewPagers: ViewPager
+    lateinit var tabLayouts: TabLayout
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        tv_see_detail.setOnClickListener(this)
-        iv_arrow.setOnClickListener(this)
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+        }
+        val fab_open = AnimationUtils.loadAnimation(this.context,R.anim.fab_open)
+        val fab_close = AnimationUtils.loadAnimation(this.context, R.anim.fab_close)
+        var isFabOpen = false
 
-        initViewPager2()
-        initGridRecyclerView()
-        autoScrollViewPager()
-        subscribeObservers()
+        (getActivity() as MainActivity).fab_main.show()
+
+
     }
 
-    private fun subscribeObservers() {
-        homeViewModel.bannerItemList.observe(viewLifecycleOwner, Observer {
-            viewPagerAdapter.submitList(it)
-        })
-        homeViewModel.gridItemList.observe(viewLifecycleOwner, Observer {
-            gridRecyclerViewAdapter.submitList(it)
-        })
-        homeViewModel.currentPosition.observe(viewLifecycleOwner, Observer {
-            viewPager2.currentItem = it
-        })
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        myFragment = inflater.inflate(R.layout.fragment_home, container, false)
+
+
+
+        return myFragment
     }
 
-    private fun autoScrollViewPager() {
-        viewLifecycleOwner.lifecycleScope.launchWhenResumed {
-            while (viewLifecycleOwner.lifecycleScope.isActive) {
-                delay(3000)
-                homeViewModel.getCurrentPosition()?.let {
-                    homeViewModel.setCurrentPosition(it.plus(1) % 5)
-                }
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        setUpViewPager()
+
+        val fab_open = AnimationUtils.loadAnimation(this.context,R.anim.fab_open)
+        val fab_close = AnimationUtils.loadAnimation(this.context, R.anim.fab_close)
+        //var isFabOpen = false
+
+        tabLayouts.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+
+                if (tab == null)
+                   // ((MainActivity)getActivity()).fab_main.hide()
+                    (getActivity() as MainActivity).fab_main.hide()
+                    //fab_main.hide()
+                else
+                    if (tab.position == 0) {
+                        (getActivity() as MainActivity).fab_main.show()
+                        //fab_main.show()
+                        //fab.startAnimation(fab_open)
+
+                    }
+                    else
+                        (getActivity() as MainActivity).fab_main.hide()
+                        //fab_main.hide()
+                        //fab1.startAnimation(fab_close)
             }
-        }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {}
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                if (tab == null)
+                    (getActivity() as MainActivity).fab_main.hide()
+                    //fab_main.hide()
+                    //fab.startAnimation(fab_open)
+                else
+                    if (tab.position == 0) {
+                        (getActivity() as MainActivity).fab_main.show()
+                       // fab_main.show()
+                        //fab.startAnimation(fab_open)
+                    }
+                    else
+                       // fab_main.hide()
+                        (getActivity() as MainActivity).fab_main.hide()
+                       // fab_main.startAnimation(fab_close)
+            }
+        })
+
     }
 
-    private fun initGridRecyclerView() {
-        gridRecyclerView.apply {
-            gridRecyclerViewAdapter = GridRecyclerViewAdapter()
-            layoutManager = GridLayoutManager(this@HomeFragment.context, 4)
-            adapter = gridRecyclerViewAdapter
+    private fun setUpViewPager() {
+        viewPagers = viewPager
+        tabLayouts = tablayout
 
-        }
-    }
+        var adapter = ViewPagerAdapter(requireFragmentManager())
+        adapter.addFragment(RecruitFragment(), "모집중")
+        adapter.addFragment(RoomFragment(), "방 생성")
 
-    private fun initViewPager2() {
-        viewPager2.apply {
-            viewPagerAdapter = ViewPagerAdapter(this@HomeFragment)
-            adapter = viewPagerAdapter
-            registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-                override fun onPageSelected(position: Int) {
-                    super.onPageSelected(position)
-                    tv_page_number.text = "${position + 1}"
-                    homeViewModel.setCurrentPosition(position)
-                }
-            })
-        }
-    }
-
-    override fun onBannerItemClicked(bannerItem: BannerItem) {
-        startActivity(Intent(this@HomeFragment.context, EventActivity::class.java))
+        viewPagers!!.adapter = adapter
+        tabLayouts!!.setupWithViewPager(viewPagers)
     }
 
     override fun onClick(v: View?) {
         v?.let {
             when (it.id) {
-                R.id.tv_see_detail, R.id.iv_arrow -> {
-                    if (ll_detail.visibility == View.GONE) {
-                        ll_detail.expand(nested_scroll_view)
-                        tv_see_detail.text = "닫기"
-                        iv_arrow.setImageResource(R.drawable.arrow_up)
-                    } else {
-                        ll_detail.collapse()
-                        tv_see_detail.text = "자세히보기"
-                        iv_arrow.setImageResource(R.drawable.arrow_down)
-                    }
+                R.id.fab1 ->{
+                    toggleFab()
                 }
+                R.id.fab1 ->{
+                    toggleFab()
+                }
+
+                R.id.fab2 ->{
+                    toggleFab()
+                }
+
             }
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-        homeViewModel.getBannerItems()
-        homeViewModel.getGridItems()
+    private fun toggleFab() {
+
+        val fab_open = AnimationUtils.loadAnimation(this.context,R.anim.fab_open)
+        val fab_close = AnimationUtils.loadAnimation(this.context, R.anim.fab_close)
+        var isFabOpen = true
+
+        if (isFabOpen)
+        {
+            fab1.setImageResource(R.drawable.f)
+            fab1.startAnimation(fab_close)
+            fab2.startAnimation(fab_close)
+            fab1.setClickable(false)
+            fab2.setClickable(false)
+            isFabOpen = false
+        }
+        else
+        {
+            fab1.setImageResource(R.drawable.f)
+            fab1.startAnimation(fab_open)
+            fab2.startAnimation(fab_open)
+            fab1.setClickable(true)
+            fab2.setClickable(true)
+            isFabOpen = true
+        }
     }
+
 }
