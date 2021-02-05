@@ -37,7 +37,6 @@ class HomeFragment : Fragment(R.layout.fragment_home), View.OnClickListener {
 
         (getActivity() as MainActivity).fab_main.show()
 
-
     }
 
 

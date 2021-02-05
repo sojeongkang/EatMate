@@ -22,7 +22,7 @@ class EatWhatFragment : Fragment(R.layout.fragment_eat_what) {
         (getActivity() as MainActivity).fab_main.hide()
 
         whatToEatAdapter = WhatToEatAdapter()
-        recyclerView.apply {
+        recyclerView2.apply {
             layoutManager = LinearLayoutManager(this.context)
             adapter = whatToEatAdapter
         }
