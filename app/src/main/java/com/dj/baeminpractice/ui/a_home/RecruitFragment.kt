@@ -30,7 +30,6 @@ class RecruitFragment : Fragment(R.layout.fragment_recruit) {
         super.onViewCreated(view, savedInstanceState)
         eatWhatViewModel.getFakeWhatToEatList()
 
-
         whatToEatAdapter = WhatToEatAdapter()
         recyclerView.apply {
             layoutManager = LinearLayoutManager(this.context)

@@ -9,16 +9,16 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.dj.baeminpractice.R
 import com.dj.baeminpractice.model.BannerItem
 import com.dj.baeminpractice.ui.EventActivity
-import com.dj.baeminpractice.ui.b_eatwhat.GridRecyclerViewAdapter
-import com.dj.baeminpractice.ui.b_eatwhat.HomeViewModel
-import com.dj.baeminpractice.ui.b_eatwhat.Interaction
+import com.dj.baeminpractice.ui.b_eatwhat.*
 import com.dj.baeminpractice.ui.collapse
 import com.dj.baeminpractice.ui.expand
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.fragment_recruit.*
 import kotlinx.android.synthetic.main.fragment_room.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
@@ -27,15 +27,26 @@ import kotlinx.coroutines.isActive
 class RoomFragment : Fragment(R.layout.fragment_room) {
 
     private lateinit var gridRecyclerViewAdapter: GridRecyclerViewAdapter
-    private lateinit var viewPagerAdapter2: ViewPagerAdapter2
+    //private lateinit var viewPagerAdapter2: ViewPagerAdapter2
+    private val eatWhatViewModel: EatWhatViewModel by viewModels()
     private val homeViewModel: HomeViewModel by viewModels()
+    private lateinit var whatToEatAdapter: WhatToEatAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         initGridRecyclerView()
+
+        eatWhatViewModel.getFakeWhatToEatList()
+
         autoScrollViewPager()
         subscribeObservers()
+
+        whatToEatAdapter = WhatToEatAdapter()
+        rvCategory.apply {
+            layoutManager = LinearLayoutManager(this.context).also { it.orientation = LinearLayoutManager.HORIZONTAL }
+            adapter = whatToEatAdapter
+        }
     }
 
     private fun subscribeObservers() {
@@ -46,10 +57,22 @@ class RoomFragment : Fragment(R.layout.fragment_room) {
             gridRecyclerViewAdapter.submitList(it)
         })
 
+        eatWhatViewModel.eatWhatToEatList.observe(
+            viewLifecycleOwner,
+            Observer { fakeWhatToEatList ->
+                fakeWhatToEatList?.let {
+                    whatToEatAdapter.apply {
+                        setList(fakeWhatToEatList)
+                    }
+                }
+            })
+
        // homeViewModel.currentPosition.observe(viewLifecycleOwner, Observer {
          //   viewPager2.currentItem = it
        // })
     }
+
+
 
     private fun autoScrollViewPager() {
         viewLifecycleOwner.lifecycleScope.launchWhenResumed {

@@ -63,39 +63,55 @@ class HomeFragment : Fragment(R.layout.fragment_home), View.OnClickListener {
         tabLayouts.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabReselected(tab: TabLayout.Tab?) {
 
-                if (tab == null)
-                   // ((MainActivity)getActivity()).fab_main.hide()
+                if (tab == null) {
+                    // ((MainActivity)getActivity()).fab_main.hide()
                     (getActivity() as MainActivity).fab_main.hide()
+                    (getActivity() as MainActivity).fab1.hide()
+                    (getActivity() as MainActivity).fab2.hide()
+                }
                     //fab_main.hide()
-                else
+                else {
                     if (tab.position == 0) {
                         (getActivity() as MainActivity).fab_main.show()
+                        (getActivity() as MainActivity).fab1.show()
+                        (getActivity() as MainActivity).fab2.show()
                         //fab_main.show()
                         //fab.startAnimation(fab_open)
 
-                    }
-                    else
+                    } else {
                         (getActivity() as MainActivity).fab_main.hide()
+                        (getActivity() as MainActivity).fab1.hide()
+                        (getActivity() as MainActivity).fab2.hide()
                         //fab_main.hide()
                         //fab1.startAnimation(fab_close)
+                    }
+                }
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {}
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                if (tab == null)
+                if (tab == null) {
                     (getActivity() as MainActivity).fab_main.hide()
+                    (getActivity() as MainActivity).fab1.hide()
+                    (getActivity() as MainActivity).fab2.hide()
+                }
                     //fab_main.hide()
                     //fab.startAnimation(fab_open)
-                else
+                else {
                     if (tab.position == 0) {
                         (getActivity() as MainActivity).fab_main.show()
-                       // fab_main.show()
+                        (getActivity() as MainActivity).fab1.show()
+                        (getActivity() as MainActivity).fab2.show()
+                        // fab_main.show()
                         //fab.startAnimation(fab_open)
-                    }
-                    else
-                       // fab_main.hide()
+                    } else {
+                        // fab_main.hide()
                         (getActivity() as MainActivity).fab_main.hide()
-                       // fab_main.startAnimation(fab_close)
+                        (getActivity() as MainActivity).fab1.hide()
+                        (getActivity() as MainActivity).fab2.hide()
+                    }
+                    // fab_main.startAnimation(fab_close)
+                }
             }
         })
 
