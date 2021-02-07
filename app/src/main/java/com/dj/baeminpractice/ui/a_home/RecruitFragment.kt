@@ -13,7 +13,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dj.baeminpractice.R
 import com.dj.baeminpractice.ui.b_eatwhat.EatWhatViewModel
-import com.dj.baeminpractice.ui.b_eatwhat.HomeViewModel
+import com.dj.baeminpractice.ui.a_home.HomeViewModel
 import com.dj.baeminpractice.ui.b_eatwhat.WhatToEatAdapter
 import kotlinx.android.synthetic.main.fragment_eat_what.*
 import kotlinx.android.synthetic.main.fragment_recruit.*
