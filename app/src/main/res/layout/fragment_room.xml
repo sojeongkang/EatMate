@@ -37,4 +37,8 @@
             tools:listitem="@layout/item_layout_category"
             app:layout_constraintStart_toStartOf="parent"/>
 
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

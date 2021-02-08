@@ -1,7 +1,6 @@
 package com.dj.baeminpractice.ui.a_home
 
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -10,13 +9,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.viewpager2.widget.ViewPager2
 import com.dj.baeminpractice.R
-import com.dj.baeminpractice.model.BannerItem
-import com.dj.baeminpractice.ui.EventActivity
 import com.dj.baeminpractice.ui.b_eatwhat.*
-import com.dj.baeminpractice.ui.collapse
-import com.dj.baeminpractice.ui.expand
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_recruit.*
 import kotlinx.android.synthetic.main.fragment_room.*

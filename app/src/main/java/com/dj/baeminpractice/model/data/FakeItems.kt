@@ -50,3 +50,4 @@ val fakeWhatToEatList = listOf(
         "https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80",
         "이웃 1, 이웃 2")
 )
+
