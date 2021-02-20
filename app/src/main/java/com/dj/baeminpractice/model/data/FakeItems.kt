@@ -34,8 +34,11 @@ val fakeGridItemList = listOf(
 
 // 뭐먹지 리스트용!
 val fakeWhatToEatList = listOf(
+    WhatToEat("아름돈까스",
+        "https://mblogthumb-phinf.pstatic.net/MjAyMDAxMDJfMjAw/MDAxNTc3OTQyNTQyMzA0.dZvPP5rcqleFUnSiMryEW1n1DKrgtNzyjasqjMywiwwg.M31wZGbpx7ErfFUgwE3kYXDS3NGktqpeKbYdMEXKAFgg.JPEG.zephyr122059/20200101_135913.jpg?type=w800",
+        "이웃 1, 이웃 2, 이웃 3"),
     WhatToEat("피자스쿨",
-        "https://lh3.googleusercontent.com/proxy/ESq69OQPEof_YF-PrBdGx00GCBqj2f1Edmg6hr0jNa8p0ghiQml-v7JBIt3a9IIQ0gHHlWF82WNaYg-F5_8sppcVOWaDbVC-XNC0kU3Ih_l9EAPg1w",
+        "https://pbs.twimg.com/media/DkufFzTVsAEknr5.jpg",
         "이웃 1, 이웃 2, 이웃 3"),
     WhatToEat("햄버거",
         "https://images2.minutemediacdn.com/image/upload/c_crop,h_1126,w_2000,x_0,y_181/f_auto,q_auto,w_1100/v1554932288/shape/mentalfloss/12531-istock-637790866.jpg",
@@ -51,3 +54,24 @@ val fakeWhatToEatList = listOf(
         "이웃 1, 이웃 2")
 )
 
+// 뭐먹지 리스트용!
+val fakeCommunityList = listOf(
+    WhatToEat("아름돈까스",
+        "https://mblogthumb-phinf.pstatic.net/MjAyMDAxMDJfMjAw/MDAxNTc3OTQyNTQyMzA0.dZvPP5rcqleFUnSiMryEW1n1DKrgtNzyjasqjMywiwwg.M31wZGbpx7ErfFUgwE3kYXDS3NGktqpeKbYdMEXKAFgg.JPEG.zephyr122059/20200101_135913.jpg?type=w800",
+        "이웃 1, 이웃 2, 이웃 3"),
+    WhatToEat("피자스쿨",
+        "https://pbs.twimg.com/media/DkufFzTVsAEknr5.jpg",
+        "이웃 1, 이웃 2, 이웃 3"),
+    WhatToEat("햄버거",
+        "https://images2.minutemediacdn.com/image/upload/c_crop,h_1126,w_2000,x_0,y_181/f_auto,q_auto,w_1100/v1554932288/shape/mentalfloss/12531-istock-637790866.jpg",
+        "이웃 1, 이웃 2, 이웃 3, 이웃 4, 이웃 5"),
+    WhatToEat("스테이크",
+        "https://i2.wp.com/www.foodrepublic.com/wp-content/uploads/2012/05/testkitchen_argentinesteak.jpg?resize=1280%2C%20560&ssl=1",
+        "이웃 1, 이웃 2"),
+    WhatToEat("과일 샌드위치",
+        "https://i0.wp.com/post.healthline.com/wp-content/uploads/2019/05/Various_Sandwiches_1296x728-header-1296x728.jpg?w=1155&h=1528",
+        "이웃 1, 이웃 2, 이웃 3"),
+    WhatToEat("샐러드",
+        "https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80",
+        "이웃 1, 이웃 2")
+)

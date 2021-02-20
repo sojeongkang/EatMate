@@ -13,13 +13,13 @@
         android:title="예약" />
 
     <item
-        android:id="@+id/nav_order"
+        android:id="@+id/nav_favorite"
         android:icon="@drawable/ic_reorder_black_24dp"
         android:title="주문내역"
         />
 
     <item
-        android:id="@+id/nav_favorite"
+        android:id="@+id/nav_order"
         android:icon="@drawable/ic_remove_from_queue_black_24dp"
         android:title="커뮤니티" />
 

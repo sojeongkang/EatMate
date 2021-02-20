@@ -9,11 +9,14 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageButton
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.dj.baeminpractice.MainActivity
 import com.dj.baeminpractice.R
+import com.dj.baeminpractice.ui.a_home.MenuTab.MenuActivity
 import com.dj.baeminpractice.ui.c_favorite.FavoriteFragment
+import com.dj.baeminpractice.ui.d_community.CommunityFragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
@@ -26,6 +29,10 @@ class HomeFragment : Fragment(R.layout.fragment_home), View.OnClickListener {
     lateinit var myFragment: View
     lateinit var viewPagers: ViewPager
     lateinit var tabLayouts: TabLayout
+
+    fun newInstance(): HomeFragment {
+        return HomeFragment()
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,14 +47,8 @@ class HomeFragment : Fragment(R.layout.fragment_home), View.OnClickListener {
     }
 
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         myFragment = inflater.inflate(R.layout.fragment_home, container, false)
-
-
-
         return myFragment
     }
 
@@ -59,6 +60,13 @@ class HomeFragment : Fragment(R.layout.fragment_home), View.OnClickListener {
         val fab_open = AnimationUtils.loadAnimation(this.context,R.anim.fab_open)
         val fab_close = AnimationUtils.loadAnimation(this.context, R.anim.fab_close)
         //var isFabOpen = false
+
+        iv_address.setOnClickListener {
+            val intent = Intent(getActivity(), AddressActivity::class.java)
+            startActivity(intent)
+
+        }
+
 
         tabLayouts.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabReselected(tab: TabLayout.Tab?) {
@@ -141,6 +149,10 @@ class HomeFragment : Fragment(R.layout.fragment_home), View.OnClickListener {
 
                 R.id.fab2 ->{
                     toggleFab()
+                }
+                R.id.iv_address ->{
+                    val intent = Intent(getActivity(), AddressActivity::class.java)
+                    startActivity(intent)
                 }
 
             }

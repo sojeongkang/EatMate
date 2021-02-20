@@ -19,7 +19,13 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.a_home.Section"/>
+        <activity android:name=".ui.a_home.CategoryTab.CategoryActivity"/>
+        <activity android:name=".ui.a_home.MenuTab.MenuActivity"/>
+        <activity android:name=".ui.a_home.MenuTab.OrderActivity"/>
+
+        <activity
+            android:name=".ui.a_home.AddressActivity"
+            android:theme="@android:style/Theme.Dialog" />
 
     </application>
 

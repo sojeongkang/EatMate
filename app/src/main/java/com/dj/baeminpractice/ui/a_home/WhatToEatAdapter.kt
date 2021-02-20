@@ -1,14 +1,17 @@
 package com.dj.baeminpractice.ui.b_eatwhat
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dj.baeminpractice.R
 import com.dj.baeminpractice.model.WhatToEat
+import com.dj.baeminpractice.ui.a_home.MenuTab.MenuActivity
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexboxLayoutManager
 import com.google.android.flexbox.JustifyContent
@@ -24,6 +27,15 @@ class WhatToEatAdapter() :
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val whatToEatItem = getItem(position)
         (holder as WhatToEatViewHolder).bind(whatToEatItem)
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(holder.itemView?.context, MenuActivity::class.java)
+            intent.putExtra("img", whatToEatItem.imageUrl);
+            intent.putExtra("title", whatToEatItem.title)
+            ContextCompat.startActivity(holder.itemView.context, intent, null)
+        }
+
+
     }
 
     class WhatToEatViewHolder
