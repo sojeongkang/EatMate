@@ -6,20 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.viewpager.widget.ViewPager
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/category_tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="@color/colorPrimary"
+        app:tabMaxWidth="0dp"
+        app:tabMode="fixed" />
+    <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/category_viewPager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/category_tablayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:tabGravity="fill"
-            app:tabIndicatorColor="@color/colorPrimary"
-            app:tabMaxWidth="0dp"
-            app:tabMode="fixed" />
-
-    </androidx.viewpager.widget.ViewPager>
+    </androidx.viewpager2.widget.ViewPager2>
 
 </LinearLayout>
