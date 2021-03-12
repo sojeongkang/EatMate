@@ -5,6 +5,6 @@
 
     <fragment
         android:id="@+id/favoriteFragment"
-        android:name="com.dj.baeminpractice.ui.c_favorite.FavoriteFragment"
+        android:name="com.dj.baeminpractice.ui.c_orderlist.OrderListFragment"
         android:label="FavoriteFragment" />
 </navigation>

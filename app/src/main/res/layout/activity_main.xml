@@ -38,6 +38,20 @@
                 app:fabSize="normal"
                 app:pressedTranslationZ="12dp" />
 
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_contents_upload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_marginRight="15sp"
+                android:layout_marginBottom="20dp"
+                android:src="@drawable/upload"
+                android:visibility="invisible"
+                app:backgroundTint="#ffffff"
+                app:elevation="6dp"
+                app:fabSize="normal"
+                app:pressedTranslationZ="12dp" />
+
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab2"
@@ -67,9 +81,6 @@
                 app:fabSize="normal"
                 app:pressedTranslationZ="12dp" />
         </FrameLayout>
-
-
-
     </RelativeLayout>
 
     <View

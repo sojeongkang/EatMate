@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#FFFFFF"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -12,7 +13,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/title_community"
+            android:id="@+id/title_chatting"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_marginStart="15dp"
@@ -32,27 +33,13 @@
             android:layout_height="25dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
-            android:text=" 커뮤니티"
+            android:text=" 채팅"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@+id/title_community"
+            app:layout_constraintLeft_toRightOf="@+id/title_chatting"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/iv_chatting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="60dp"
-            android:layout_marginBottom="15dp"
-            android:tint="#000000"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@android:drawable/stat_notify_chat" />
 
         <ImageView
             android:id="@+id/imageView"
@@ -68,14 +55,20 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <View
-        android:id="@+id/view7"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/c_viewPager"
         android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:background="#DDDDDD" />
+        android:layout_height="wrap_content">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_content"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/c_tablayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@color/colorPrimary"
+            app:tabMaxWidth="0dp"
+            app:tabMode="fixed" />
+
+    </androidx.viewpager.widget.ViewPager>
+
 </LinearLayout>

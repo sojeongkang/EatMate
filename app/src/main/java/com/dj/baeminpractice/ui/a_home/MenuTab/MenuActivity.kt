@@ -34,8 +34,6 @@ class MenuActivity  : AppCompatActivity() {
                 .load(intent.getStringExtra("img"))
                 .into(iv_foodimg);
         } else { Toast.makeText(this, "Error!", Toast.LENGTH_SHORT).show() }
-
-
     }
 
 

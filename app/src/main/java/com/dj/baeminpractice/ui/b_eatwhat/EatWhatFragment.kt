@@ -20,6 +20,9 @@ class EatWhatFragment : Fragment(R.layout.fragment_eat_what) {
         super.onViewCreated(view, savedInstanceState)
         eatWhatViewModel.getFakeWhatToEatList()
         (getActivity() as MainActivity).fab_main.hide()
+        (getActivity() as MainActivity).fab1.hide()
+        (getActivity() as MainActivity).fab2.hide()
+        (getActivity() as MainActivity).fab_upload.hide()
 
         whatToEatAdapter = WhatToEatAdapter()
         recyclerView2.apply {

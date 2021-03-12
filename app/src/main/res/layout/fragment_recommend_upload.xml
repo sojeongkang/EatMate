@@ -3,63 +3,66 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topbar"
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="wrap_content">
 
-        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.androidx.com/apk/res-auto"
-            android:id="@+id/img_pro2"
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:src="@drawable/propic1"
-            app:civ_border_color="#FF000000"
-            app:civ_border_width="2dp" />
-
-        <TextView
-            android:id="@+id/tv_username"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="15dp"
-            android:layout_toRightOf="@+id/img_pro2"
-            android:gravity="center"
-            android:text="아로하"
-            android:textSize="18dp"
-            android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:tint="#000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/back" />
 
         <TextView
-            android:id="@+id/imageView2"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="20dp"
-            android:gravity="center"
-            android:text="8분전" />
+            android:layout_height="25dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:text="잇웃 커뮤니티 글쓰기"
+            android:textSize="18sp"
+            android:tint="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/iv_back"
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <Button
+            android:id="@+id/bt_upload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="#FFFFFF"
+            android:text="완료"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
-        android:id="@+id/view5"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#E1E1E1" />
-
-    <TextView
-        android:id="@+id/textView21"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="15dp"
-        android:text="치즈돈까스 맛있어용!"
-        android:textSize="18sp" />
+        android:layout_height="5dp"
+        android:background="#DDDDDD" />
 
     <RelativeLayout
+        android:id="@+id/frame_recommend"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="15dp"
         android:background="@drawable/layout_shadow"
         android:orientation="vertical"
@@ -71,14 +74,13 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginBottom="10dp"
-            android:padding="10dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="10dp">
 
             <TextView
-                android:id="@+id/tv_user"
+                android:id="@+id/tv_recommend_user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:layout_weight="1"
                 android:text="아로하"
                 android:textSize="18sp"
@@ -92,7 +94,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/tv_storename1"
+                android:id="@+id/tv_recommend_storename"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -109,13 +111,13 @@
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/imageView12"
+            android:id="@+id/iv_good"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/layout_tv"
             android:layout_centerVertical="true"
             android:layout_marginTop="55dp"
-            app:srcCompat="@drawable/heart" />
+            app:srcCompat="@drawable/good" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
@@ -123,8 +125,9 @@
             android:layout_below="@id/layout_tv"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_toRightOf="@+id/imageView12"
-            android:background="#FFFFFF">
+            android:layout_toRightOf="@+id/iv_good"
+            android:background="#FFFFFF"
+            android:padding="10dp">
 
             <ImageView
                 android:id="@+id/imageView3"
@@ -140,7 +143,9 @@
                 android:id="@+id/constraintLayout2_category1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/imageView3">
+                android:layout_marginTop="5dp"
+                app:layout_constraintTop_toBottomOf="@+id/imageView3"
+                tools:layout_editor_absoluteX="10dp">
 
                 <TextView
                     android:id="@+id/tv_storename2"
@@ -172,7 +177,8 @@
                         android:id="@+id/imageView3_category1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:srcCompat="@android:drawable/btn_star_big_on" />
+                        android:layout_gravity="center_vertical"
+                        app:srcCompat="@drawable/star" />
 
                     <TextView
                         android:id="@+id/score_category1"
@@ -182,14 +188,16 @@
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="5dp"
                         android:text="4.8"
+                        android:textColor="@color/colorMain"
                         android:textSize="14sp" />
 
                     <ImageView
                         android:id="@+id/img_dis_category1"
-                        android:layout_width="wrap_content"
+                        android:layout_width="8dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:layout_marginTop="5dp"
+                        android:tint="@color/colorMain"
                         app:srcCompat="@android:drawable/radiobutton_off_background" />
 
                     <TextView
@@ -199,6 +207,7 @@
                         android:layout_marginStart="2dp"
                         android:layout_marginTop="5dp"
                         android:text="거리 km"
+                        android:textColor="@color/colorMain"
                         android:textSize="14sp" />
 
                 </LinearLayout>
@@ -216,71 +225,18 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </RelativeLayout>
 
-    <View
-        android:id="@+id/view4"
+    <EditText
+        android:id="@+id/et_contents_comments"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="10dp"
-        android:background="#D3D2D2" />
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:hint="글을 입력하세요"
+        android:inputType="textMultiLine"
+        android:padding="20dp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal"
-        android:padding="10dp">
-
-        <ImageView
-            android:id="@+id/iv_heart"
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/like" />
-
-        <TextView
-            android:id="@+id/textView18"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="공감하기" />
-
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-
-            app:srcCompat="@drawable/chat_bubble" />
-
-        <TextView
-            android:id="@+id/textView19"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="댓글달기" />
-
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:tint="#000000"
-            app:srcCompat="@android:drawable/ic_menu_share" />
-
-        <TextView
-            android:id="@+id/textView20"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="공유하기" />
-
-    </LinearLayout>
-
-    <View
-        android:id="@+id/view6"
-        android:layout_width="wrap_content"
-        android:layout_height="10dp"
-        android:layout_weight="1"
-        android:background="#C3C3C3" />
 
 </LinearLayout>
