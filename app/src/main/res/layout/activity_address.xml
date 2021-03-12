@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
             android:ems="10"
-            android:hint=" 예) 잇웃동12-3 또는 잇웃아파트"
+            android:hint=" 예) 잇웃동 12-3 또는 잇웃 아파트"
             android:inputType="textPostalAddress" />
 
         <ImageButton
