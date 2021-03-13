@@ -13,6 +13,7 @@ val fakeBannerItemList = listOf(
     BannerItem(R.drawable.fifth)
 )
 
+
 val fakeGridItemList = listOf(
     GridItem(R.drawable.a, "1인분"),
     GridItem(R.drawable.b, "잇웃오더"),

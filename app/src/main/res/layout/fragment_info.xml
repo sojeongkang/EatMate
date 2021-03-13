@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#d3d3d3"
+    tools:context=".ui.a_home.MenuTab.InfoFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#fff">
+
+        <TextView
+            android:id="@+id/tv_storedescription_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="가게소개"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:paddingBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tv_storeInfo_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="안녕하세요~ 저희 가게를 찾아주셔서 감사합니다! 현재 이벤트 ~~"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp"
+        android:background="#fff">
+
+        <TextView
+            android:id="@+id/tv_storedescription_Introduce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="영업정보"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:paddingBottom="8dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="영업시간"
+                android:layout_marginEnd="16dp"/>
+
+            <TextView
+                android:id="@+id/tv_opentime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="평일-오전 10:20~ 오후 9:30"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="휴무일"
+                android:layout_marginEnd="16dp"/>
+
+            <TextView
+                android:id="@+id/tv_closedday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="월요일"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="주소"
+                android:layout_marginEnd="16dp"/>
+
+            <TextView
+                android:id="@+id/tv_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="서울시 관악구 봉천동"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="전화번호"
+                android:layout_marginEnd="16dp"/>
+
+            <TextView
+                android:id="@+id/tv_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="010-1234-5678"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp"
+        android:background="#fff">
+
+        <TextView
+            android:id="@+id/tv_buseni"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="사업자 정보"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:paddingBottom="8dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="영업시간"
+                android:layout_marginEnd="16dp"/>
+
+            <TextView
+                android:id="@+id/tv_ownername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="김대표"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="휴무일"
+                android:layout_marginEnd="16dp"/>
+
+            <TextView
+                android:id="@+id/tv_restaurant_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="명진떡볶이"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="사업자 번호"
+                android:layout_marginEnd="16dp"/>
+
+            <TextView
+                android:id="@+id/tv_business_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="111-22-33333"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
