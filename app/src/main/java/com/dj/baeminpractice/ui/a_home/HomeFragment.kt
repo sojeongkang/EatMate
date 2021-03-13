@@ -5,20 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.ImageButton
-import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.dj.baeminpractice.MainActivity
 import com.dj.baeminpractice.R
-import com.dj.baeminpractice.ui.a_home.MenuTab.MenuActivity
-import com.dj.baeminpractice.ui.c_favorite.FavoriteFragment
-import com.dj.baeminpractice.ui.d_community.CommunityFragment
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -43,6 +34,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), View.OnClickListener {
         var isFabOpen = false
 
         (getActivity() as MainActivity).fab_main.show()
+        (getActivity() as MainActivity).fab_upload.hide()
 
     }
 

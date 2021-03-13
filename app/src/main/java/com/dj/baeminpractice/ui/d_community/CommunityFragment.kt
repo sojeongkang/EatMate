@@ -1,22 +1,14 @@
 package com.dj.baeminpractice.ui.d_community
 
+
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dj.baeminpractice.MainActivity
 import com.dj.baeminpractice.R
-import com.dj.baeminpractice.ui.a_home.HomeViewModel
-import com.dj.baeminpractice.ui.a_home.RoomFragment
-import com.dj.baeminpractice.ui.b_eatwhat.EatWhatViewModel
 import kotlinx.android.synthetic.main.fragment_community.*
-import kotlinx.android.synthetic.main.fragment_recruit.*
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.isActive
 
 
 class CommunityFragment: Fragment(R.layout.fragment_community){
@@ -29,6 +21,9 @@ class CommunityFragment: Fragment(R.layout.fragment_community){
         super.onViewCreated(view, savedInstanceState)
 
         (getActivity() as MainActivity).fab_main.hide()
+        (getActivity() as MainActivity).fab1.hide()
+        (getActivity() as MainActivity).fab2.hide()
+        (getActivity() as MainActivity).fab_upload.show()
 
         val contentAdapter = ContentAdapter()
 
@@ -42,15 +37,18 @@ class CommunityFragment: Fragment(R.layout.fragment_community){
         rv_content.setLayoutManager(layoutManager)
         rv_content.setAdapter(contentAdapter)
 
+        (getActivity() as MainActivity).fab_upload.setOnClickListener(){
+            (getActivity() as MainActivity).replaceFragment(ContentsUploadFragment().newInstance())
+        }
 
         iv_chatting.setOnClickListener(){
-           // getsupportFragmentManager().beginTransaction().replace(R.id.action_container, orderFragment
-            //((MainActivity)getActivity()).replaceFragment(RoomFragment());
-
-            (getActivity() as MainActivity).replaceFragment(RoomFragment().newInstance())
+            (getActivity() as MainActivity).replaceFragment(ChattingFragment().newInstance())
         }
     }
 
+    fun replacement(){
+        (getActivity() as MainActivity).replaceFragment(ChattingFragment().newInstance())
+    }
 
 
 

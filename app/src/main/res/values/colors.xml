@@ -2,8 +2,15 @@
 <resources>
     <color name="colorPrimary">#FD7A76</color>
     <color name="colorPrimaryDark">#6F3AFF</color>
-    <color name="colorAccent">#FD7A76</color>
-
+    <color name="colorAccent">#03DAC5</color>
+    <color name="colorBlack">#000</color>
+    <color name="colorWhite">#fff</color>
     <color name="colorGray">#333333</color>
-    <color name="menuRed">#FF7474</color>
+    <color name="colorLittlebitLighterGray">#838383</color>
+    <color name="colorLighterGray">#CCCCCC</color>
+    <color name="colorLighterGray2">#E6E6E6</color>
+    <color name="colorMain">#FD7A76</color>
+    <color name="colorMainLighter1">#FFE6E6</color>
+    <color name="colorMainLighter2">#FFD5D4</color>
+    <color name="colorPurple">#B3E3DBEB</color>
 </resources>

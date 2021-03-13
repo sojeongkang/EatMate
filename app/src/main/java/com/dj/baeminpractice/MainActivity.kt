@@ -1,6 +1,5 @@
 package com.dj.baeminpractice
 
-import android.net.sip.SipManager.newInstance
 import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
@@ -16,9 +15,6 @@ import com.dj.baeminpractice.ui.d_community.CommunityFragment
 
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import java.lang.reflect.Array.newInstance
-import javax.xml.datatype.DatatypeFactory.newInstance
-import javax.xml.transform.TransformerFactory.newInstance
 
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -30,6 +26,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     lateinit var fab_main: FloatingActionButton
     lateinit var fab1:FloatingActionButton
     lateinit var fab2:FloatingActionButton
+    lateinit var fab_upload:FloatingActionButton
     var openFlag = false
 
     lateinit var frag1:RoomFragment
@@ -50,6 +47,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         fab_main = findViewById(R.id.fab_main)
         fab1 = findViewById(R.id.fab1)
         fab2 = findViewById(R.id.fab2)
+        fab_upload= findViewById(R.id.fab_contents_upload)
 
         //버튼 상태 초기화(닫혀있도록)
         fab1.startAnimation(fab_close)
@@ -60,6 +58,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         fab_main.setOnClickListener(this)
         fab1.setOnClickListener(this)
         fab2.setOnClickListener(this)
+        fab_upload.setOnClickListener(this)
 
         //val fragmentTransaction = getSupportFragmentManager().beginTransaction()
         //fragmentTransaction.add(R.id.action_container, CommunityFragment()).commit()
@@ -121,6 +120,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 anim()
                 Toast.makeText(this, "파랑이", Toast.LENGTH_SHORT).show()
             }
+
+
         }
     }
 
@@ -143,7 +144,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     fun replaceFragment(fragment: Fragment) {
         val fragmentManager = getSupportFragmentManager()
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.action_container, fragment).commit() // Fragment로 사용할 MainActivity내의 layout공간을 선택합니다.
+        fragmentTransaction.replace(R.id.action_container, fragment).addToBackStack(null).commit() // Fragment로 사용할 MainActivity내의 layout공간을 선택합니다.
+
     }
 
 

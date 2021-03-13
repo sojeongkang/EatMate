@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">BaeminPractice</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="total_price_text">합계 : <b><i>10,000</i></b>원</string>
 </resources>
