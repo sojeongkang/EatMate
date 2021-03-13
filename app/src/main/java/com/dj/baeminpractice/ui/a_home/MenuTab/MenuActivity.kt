@@ -43,7 +43,7 @@ class MenuActivity  : AppCompatActivity() {
 
     private fun initViewPager(){
 
-        val fragmentList:List<Fragment> = listOf(MenuFragment(),RoomFragment(),RoomFragment())
+        val fragmentList:List<Fragment> = listOf(MenuFragment(),ReviewFragment(),InfoFragment())
 
         val adapter = PageAdapter(this,fragmentList) // PageAdapter 생성
 
